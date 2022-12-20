@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap');
+
+:root {
+  /* colors */
+  --rich-black: #0d1b2a;
+  --oxford-blue: #1B263B;
+  --bdazzled-blue: #415a77;
+  --shadow-blue: #778DA9;
+  --platinum: #E0E1DD;
+
+  /* sizes */
+  --xs: .3rem;
+  --sm: .6rem;
+  --md: .8rem;
+  --md1: 1rem;
+  --md2: 1.4rem;
+
+  --b-radius: 6px;
+  --b-radius-circle: 50%;
+}
+
