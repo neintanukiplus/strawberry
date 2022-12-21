@@ -1,0 +1,13 @@
+.btn {
+    margin: var(--sm) 0;
+}
+
+.btn button {
+    width: 100%;
+    padding: var(--md1);
+    background-color: var(--shadow-blue);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 3px;
+}
