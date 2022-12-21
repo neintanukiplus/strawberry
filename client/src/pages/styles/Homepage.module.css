@@ -1,0 +1,19 @@
+.homepage {
+    background-image: url('../../assets/bg.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.homepage form {
+    background-color: var(--rich-black);
+    color: var(--platinum);
+    width: 34rem;
+    margin: var(--md2);
+    padding: var(--md);
+}
