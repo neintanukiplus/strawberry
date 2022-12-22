@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.2.1",
     "jdenticon": "^3.2.0",
     "livekit-client": "^1.6.0",
     "phaser": "^3.55.2",
