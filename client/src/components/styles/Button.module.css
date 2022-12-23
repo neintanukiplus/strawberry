@@ -10,4 +10,7 @@
     font-weight: 700;
     border: none;
     border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
