@@ -7,6 +7,7 @@ interface Props {
     id?: string,
     placeholder?: string,
     value: string,
+    isError?: boolean,
     evt: Function
 }
 
@@ -15,6 +16,7 @@ export default function TextInput({
     id = 'text-input',
     placeholder,
     value,
+    isError = false,
     evt
 }: Props) {
 
@@ -23,7 +25,7 @@ export default function TextInput({
     }
 
     return (
-        <div className={style["text-input"]}>
+        <div className={`${style["text-input"]} ${isError && style['error']}`}>
             <input
             type="text"
             name={name}
