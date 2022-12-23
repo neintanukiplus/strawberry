@@ -31,14 +31,11 @@ router.post('/api/verify', async (req, res) => {
                     message: "Developer not found"
                 })
             }
-            console.log(await db.collection('developers').find().toArray())
         } catch (error) {
             res.status(500).json({
                 message: "Unresolved server error"
             })
         }
-
-        res.send()
     } else {
         res.status(400).json({
             message: "Invalid developer key. Please try again"
