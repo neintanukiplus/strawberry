@@ -1,0 +1,26 @@
+.strip-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    padding: var(--sm);
+}
+
+.danger {
+    background-color: var(--coral-red);
+}
+
+.success {
+    background-color: var(--lime-tree);
+}
+
+.info {
+    background-color: var(--shadow-blue);
+}
+
+.warning {
+    background-color: var(--flame-angelfish);
+}
