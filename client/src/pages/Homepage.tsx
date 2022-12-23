@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react'
-import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 import style from './styles/Homepage.module.css'
 
@@ -7,10 +7,9 @@ import Button from '../components/Button'
 import TextInput from '../components/TextInput'
 import VersionInfo from '../components/VersionInfo'
 import TopStripAlert from '../components/TopStripAlert'
-import { useNavigate } from 'react-router-dom'
+import verifyDeveloper from '../services/verifyDeveloper'
 
 export default function Homepage() {
-    const nav = useNavigate()
     const [developerKey, setDeveloperKey] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     const [err, setErr] = useState({
@@ -18,46 +17,15 @@ export default function Homepage() {
         msg: '',
         type: 'danger'
     })
+    const nav = useNavigate()
 
     async function launch(e: ChangeEvent<HTMLFormElement> ) {
         e.preventDefault()
 
-        setIsLoading(true)
+        const verified = await verifyDeveloper({ value: developerKey, setLoading: setIsLoading, setError: setErr })
 
-        try {
-            const res = await axios.post('/api/verify', {
-                dev_key: developerKey
-            })
-
-            if (res.status == 200) {
-                nav('/dashboard')
-            }
-        } catch (error: any) {
-            if (error?.response) {
-                const { data, status } = error.response
-                
-                if (status >= 400 && status < 500) {
-                    setErr({
-                        isDenied: true,
-                        msg: data.message?? "Bad Request",
-                        type: "danger"
-                    })
-                } else {
-                    setErr({
-                        isDenied: true,
-                        msg: data.message ?? "Something went wrong",
-                        type: "warning"
-                    })
-                }
-            } else {
-                setErr({
-                    isDenied: true,
-                    msg: "Check your connection",
-                    type: "warning"
-                })             
-            }
-        } finally {
-            setIsLoading(false)
+        if (verified) {
+            nav("/dashboard")
         }
     }
 
