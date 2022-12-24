@@ -14,3 +14,14 @@
     align-items: center;
     justify-content: center;
 }
+
+.circle-btn button {
+    height: var(--lg1);
+    width: var(--lg1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: var(--b-radius-circle);
+    background-color: var(--shadow-blue);
+}
