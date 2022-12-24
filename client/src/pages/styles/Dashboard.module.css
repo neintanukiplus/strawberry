@@ -1,0 +1,29 @@
+.dashboard {
+    min-height: 100vh;
+    background-color: var(--rich-black);
+    color: #fff;
+}
+
+.dashboard nav {
+    padding: var(--md);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+}
+
+.dashboard .inner-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: var(--md2);
+}
+
+.dashboard header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+.dashboard header .right {
+    justify-self: flex-end;
+}
