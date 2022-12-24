@@ -1,0 +1,10 @@
+.profile-picture {
+    border-radius: var(--b-radius-circle);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    border: solid 1px #fff;
+    margin: 0 var(--sm);
+}
