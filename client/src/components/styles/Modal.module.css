@@ -1,0 +1,18 @@
+.modal {
+    background-color: #00000096;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.modal .inner {
+    background-color: var(--oxford-blue);
+    padding: var(--md1);
+    border-radius: var(--b-radius);
+    width: 500px;
+}
