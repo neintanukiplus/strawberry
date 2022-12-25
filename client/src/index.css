@@ -17,6 +17,8 @@
   --md: .8rem;
   --md1: 1rem;
   --md2: 1.4rem;
+  --lg: 2rem;
+  --lg1: 4rem;
 
   --b-radius: 6px;
   --b-radius-circle: 50%;
@@ -40,4 +42,8 @@
   background-color: #000;
   color: #fff;
   padding: var(--md);
+}
+
+.modal-body {
+  margin: var(--md) 0
 }
