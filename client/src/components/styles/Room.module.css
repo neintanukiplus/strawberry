@@ -1,0 +1,10 @@
+.room header {
+    margin: var(--sm) 0;
+}
+
+.room footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--md);
+    align-items: center;
+}
