@@ -2,6 +2,7 @@ import { Server } from "colyseus"
 import { WebSocketTransport } from "@colyseus/ws-transport"
 import express from 'express'
 import mongoose from "mongoose"
+import cookieParser from 'cookie-parser'
 import http from 'http'
 import * as dotenv from 'dotenv'
 import cors from 'cors'
@@ -23,8 +24,9 @@ const gameServer = new Server({
 
 app.use(cors())
 app.use(express.json())
+app.use(cookieParser())
 
-app.use('/', authRoutes)
+app.use('/api', authRoutes)
 
 mongoose.connect(DB_URI, err => {
     if (!err) {
