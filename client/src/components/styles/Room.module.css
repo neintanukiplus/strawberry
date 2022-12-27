@@ -1,3 +1,9 @@
+.room {
+    background-color: var(--oxford-blue);
+    padding: var(--md);
+    border-radius: var(--b-radius);
+}
+
 .room header {
     margin: var(--sm) 0;
 }
