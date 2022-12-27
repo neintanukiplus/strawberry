@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Homepage from "./pages/Homepage";
 import Dashboard from "./pages/Dashboard";
+import PrivateRoute from "./components/PrivateRoute";
 
 export default createBrowserRouter([
     {
@@ -10,6 +11,6 @@ export default createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <Dashboard />
+        element: <PrivateRoute><Dashboard /></PrivateRoute>
     }
 ])
