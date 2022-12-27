@@ -1,10 +1,12 @@
 import { Router } from 'express'
 import bcrypt from 'bcrypt'
 import mongoose from 'mongoose'
+import { createToken, verifyToken } from '../utils/auth'
+import { isLoggedIn } from '../middlewares/auth'
 
 const router = Router()
 
-router.post('/api/verify', async (req, res) => {
+router.post('/verify', async (req, res) => {
     const body = req.body
     const dev_key: string = body?.dev_key
     const key: string = dev_key.split("-")[0]
@@ -18,7 +20,11 @@ router.post('/api/verify', async (req, res) => {
                 const isKeyMatched = await bcrypt.compare(dev_key, developer.hash)
 
                 if (isKeyMatched) {
-                    res.status(200).json({
+                    res.cookie("token", createToken(developer._id.toString()), {
+                        maxAge: 1000 * 60 * 60 * 24 * 2,
+                        httpOnly: true,
+                        secure: true
+                    }).status(200).json({
                         message: "Access Granted"
                     })
                 } else {
@@ -41,6 +47,10 @@ router.post('/api/verify', async (req, res) => {
             message: "Invalid developer key. Please try again"
         })
     }
+})
+
+router.get("/check", isLoggedIn, (req, res) => {
+    res.status(200).end()
 })
 
 export default router
