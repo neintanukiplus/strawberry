@@ -1,7 +1,7 @@
 export default function VersionInfo() {
     return (
         <div className="version-info">
-            💖 Ver. 0.0.5
+            💖 Ver. 0.0.7
         </div>
     )
 }
