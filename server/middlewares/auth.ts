@@ -15,9 +15,10 @@ export function isLoggedIn(req: Request, res: Response, next: NextFunction) {
                 const { id } = decoded
 
                 try {
-                    const dev = await Developer.findById(id)
+                    const dev = await Developer.findById(id).select("-hash")
 
                     if (dev) {
+                        res.locals.dev = dev
                         next()
                     } else {
                         res.status(401).end()
