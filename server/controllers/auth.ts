@@ -1,12 +1,12 @@
-import { Router } from 'express'
+import { Request, Response, Router } from 'express'
 import bcrypt from 'bcrypt'
 import mongoose from 'mongoose'
-import { createToken, verifyToken } from '../utils/auth'
+import { createToken } from '../utils/auth'
 import { isLoggedIn } from '../middlewares/auth'
 
 const router = Router()
 
-router.post('/verify', async (req, res) => {
+router.post('/verify', async (req: Request, res: Response) => {
     const body = req.body
     const dev_key: string = body?.dev_key
     const key: string = dev_key.split("-")[0]
@@ -49,8 +49,8 @@ router.post('/verify', async (req, res) => {
     }
 })
 
-router.get("/check", isLoggedIn, (req, res) => {
-    res.status(200).end()
+router.get("/check", isLoggedIn, (req: Request, res: Response) => {
+    res.status(200).json({ dev: res.locals.dev })
 })
 
 export default router
